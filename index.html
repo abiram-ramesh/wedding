@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#f39a76">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cinzel:wght@500;600&family=Noto+Serif+Tamil:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cinzel:wght@500;600;700&family=Noto+Serif+Tamil:wght@600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/env-flap.svg">
 <link rel="preload" as="image" href="assets/env-pocket.svg">
 <style>
@@ -105,10 +105,22 @@
   .hero .art { width: 62%; margin: 20px auto 8px; }
   .om { font-size: 14px; color: #8e1b2f; margin: 4px 0 10px; }
   .bless { font-size: 16px; line-height: 1.5; font-style: italic; background: rgba(255,255,255,.82); padding: 10px 12px; border-radius: 10px; margin: 0 auto 12px; color: #5b4743; }
-  .name { font-size: 50px; line-height: 1.12; margin: 4px 0 2px; font-weight: 600; }
+  .names { margin: 6px 0 0; }
+  .name { font: 600 42px "Cinzel", serif; letter-spacing: .12em; padding-left: .12em; color: #7a0f2e; line-height: 1.05; margin: 4px 0 0;
+          text-shadow: 0 1px 0 rgba(255,255,255,.9), 0 2px 6px rgba(122,15,46,.12); white-space: nowrap; }
+  .name .ini { font-size: 1.42em; letter-spacing: .02em; vertical-align: -.04em;
+               background: linear-gradient(170deg, #8a5a12 0%, #d9ab48 30%, #f8e3a0 48%, #c08f2e 66%, #8a5a12 100%);
+               -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
+               filter: drop-shadow(0 1px 0 rgba(255,255,255,.7)) drop-shadow(0 2px 3px rgba(120,80,10,.25)); }
+  .flo { display: block; width: 150px; height: 14px; margin: 8px auto 2px; }
   .par { font-size: 15px; color: var(--muted); line-height: 1.35; font-style: italic; }
-  .with { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 22px; color: #b23a62; margin: 10px auto 4px; width: 60%; }
-  .with::before, .with::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #d9a3b2, transparent); }
+  .amp { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 16px auto 12px; width: 84%; }
+  .amp::before, .amp::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #c99a3b); }
+  .amp::after { background: linear-gradient(90deg, #c99a3b, transparent); }
+  .amp b { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+           font: italic 500 25px "Playfair Display", serif; color: #fff8e6; padding-bottom: 2px;
+           background: radial-gradient(circle at 35% 30%, #f8e3a0, #c99a3b 55%, #8a5a12);
+           box-shadow: 0 4px 10px rgba(138,90,18,.35), inset 0 0 0 2px rgba(255,255,255,.45), 0 0 0 4px rgba(255,248,240,.9), 0 0 0 5px #e3c27a; }
 
   /* scratch */
   .std { position: relative; width: 92%; margin: 6px auto 0; height: 128px; }
@@ -250,11 +262,15 @@
       <div class="reveal">
         <div class="om tamil">‖ ஸ்ரீ விநாயகர் துணை ‖</div>
         <div class="bless">Together with our families, we seek your gracious presence and blessings on the auspicious occasion of the wedding celebration of</div>
-        <div class="name script grad">Abiram</div>
+        <div class="names">
+        <div class="name"><span class="ini">A</span>BIRAM</div>
+        <svg class="flo" viewBox="0 0 150 14" aria-hidden="true"><path d="M4 7 H62 M88 7 H146" stroke="#c99a3b" stroke-width="1"/><path d="M75 1 L81 7 L75 13 L69 7Z" fill="#c99a3b"/><circle cx="64" cy="7" r="1.6" fill="#c99a3b"/><circle cx="86" cy="7" r="1.6" fill="#c99a3b"/></svg>
         <div class="par">S/o Mr. D. Ramesh &amp;<br>Late Mrs. R. Vasundradevi</div>
-        <div class="with script">with</div>
-        <div class="name script grad">Dhivya</div>
+        <div class="amp"><b>&amp;</b></div>
+        <div class="name"><span class="ini">D</span>HIVYA</div>
+        <svg class="flo" viewBox="0 0 150 14" aria-hidden="true"><path d="M4 7 H62 M88 7 H146" stroke="#c99a3b" stroke-width="1"/><path d="M75 1 L81 7 L75 13 L69 7Z" fill="#c99a3b"/><circle cx="64" cy="7" r="1.6" fill="#c99a3b"/><circle cx="86" cy="7" r="1.6" fill="#c99a3b"/></svg>
         <div class="par">D/o Mr. K. Madurai Muthu &amp;<br>Mrs. M. Shantha</div>
+        </div>
       </div>
       <img class="leaves" src="assets/hero-leaves.svg" style="left:-8px" alt="">
       <img class="leaves" src="assets/hero-leaves.svg" style="right:-8px;transform:scaleX(-1)" alt="">
