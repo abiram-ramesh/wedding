@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#f39a76">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cinzel:wght@500;600&family=Noto+Serif+Tamil:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cinzel:wght@500;600&family=Noto+Serif+Tamil:wght@600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/env-flap.svg">
 <link rel="preload" as="image" href="assets/env-pocket.svg">
 <style>
@@ -30,7 +30,8 @@
   body { background: #ecdcd6; color: var(--ink); font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; overflow-x: hidden; }
   body.locked { overflow: hidden; height: 100vh; }
   img { display: block; }
-  .script { font-family: "Alex Brush", cursive; font-weight: 400; }
+  .script { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: .005em; }
+  .grad { background: linear-gradient(100deg, #9c0f3f 0%, #d0306a 45%, #a3123f 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .caps { font-family: "Cinzel", serif; letter-spacing: .22em; text-transform: uppercase; }
   .tamil { font-family: "Noto Serif Tamil", serif; }
   #petals { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
@@ -92,7 +93,7 @@
   .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s ease, transform 1s ease; }
   .reveal.in { opacity: 1; transform: none; }
   .div { width: 64%; margin: 4px auto; }
-  .title { font-size: 46px; color: var(--rose); margin: 0; line-height: 1.1; }
+  .title { font-size: 34px; color: #9c1a45; margin: 0; line-height: 1.2; }
   .kicker { font-size: 10px; color: var(--muted); }
   .deco { position: absolute; pointer-events: none; }
 
@@ -104,31 +105,39 @@
   .hero .art { width: 62%; margin: 20px auto 8px; }
   .om { font-size: 14px; color: #8e1b2f; margin: 4px 0 10px; }
   .bless { font-size: 16px; line-height: 1.5; font-style: italic; background: rgba(255,255,255,.82); padding: 10px 12px; border-radius: 10px; margin: 0 auto 12px; color: #5b4743; }
-  .name { font-size: 62px; color: var(--pink); line-height: 1.05; margin: 2px 0 0; }
+  .name { font-size: 50px; line-height: 1.12; margin: 4px 0 2px; font-weight: 600; }
   .par { font-size: 15px; color: var(--muted); line-height: 1.35; font-style: italic; }
-  .with { font-size: 36px; color: var(--pink); margin: 6px 0 -4px; line-height: 1; }
+  .with { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 22px; color: #b23a62; margin: 10px auto 4px; width: 60%; }
+  .with::before, .with::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #d9a3b2, transparent); }
 
   /* scratch */
-  .std { position: relative; width: 90%; margin: 6px auto 0; height: 98px; }
-  .std-u { position: absolute; inset: 0; border: 1px solid #ebc9cf; border-radius: 14px; background: rgba(255,255,255,.9);
+  .std { position: relative; width: 92%; margin: 6px auto 0; height: 128px; }
+  .std-u { position: absolute; inset: 0; border-radius: 16px; padding: 14px 10px 12px;
+           background: radial-gradient(ellipse at 50% 0%, #fff 0%, #fff6f2 60%, #fdeae8 100%);
+           box-shadow: inset 0 0 0 1.5px #e3bd6f, inset 0 0 0 5px #fff8f3, inset 0 0 0 6px #edd3a0;
            display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .std-u .caps { font-size: 10px; color: var(--muted); }
-  .std-u .script { font-size: 40px; color: var(--pink); line-height: 1.1; }
+  .std-u .caps { font-size: 10px; color: #9a6b4f; letter-spacing: .32em; }
+  .dt { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 6px; color: #9c1a45; }
+  .dt .side { font-family: "Cinzel", serif; font-size: 12px; letter-spacing: .2em; line-height: 1.5; padding: 4px 0;
+              border-top: 1px solid #e3b9c5; border-bottom: 1px solid #e3b9c5; width: 92px; }
+  .dt .day { font-family: "Playfair Display", serif; font-weight: 700; font-size: 52px; line-height: 1; }
   #scratch { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 14px; touch-action: none; cursor: grab;
              transition: opacity .9s; box-shadow: 0 8px 18px rgba(150,110,30,.35); }
   .note { font-size: 15px; color: var(--muted); margin-top: 10px; font-style: italic; }
   .count { display: flex; justify-content: center; gap: 10px; margin-top: 12px; opacity: .35; transition: opacity .9s; }
   .count.live { opacity: 1; }
   .count div { width: 62px; }
-  .count b { display: block; border: 1px solid #ebc9cf; background: #fff; border-radius: 12px; padding: 9px 0; font: 600 22px "Cormorant Garamond", serif; color: #8e1b2f; }
-  .count span { display: block; margin-top: 5px; font-size: 8.5px; color: var(--muted); }
+  .count b { display: block; border-radius: 12px; padding: 10px 0; font: 600 24px "Playfair Display", serif; color: #ffe6a8;
+             background: linear-gradient(160deg, #a3173f 0%, #7a0d2c 100%); box-shadow: 0 6px 14px rgba(122,13,44,.28), inset 0 0 0 1px rgba(255,215,140,.45), inset 0 0 0 4px #8d1235, inset 0 0 0 5px rgba(255,215,140,.35); }
+  .count span { display: block; margin-top: 6px; font-size: 8.5px; color: #9a6b4f; }
 
   /* event cards */
-  .ev { position: relative; margin: 22px 4px 0; background: #fff; border-radius: 22px; padding: 8px 8px 12px; box-shadow: 0 12px 30px rgba(120,40,30,.15); }
+  .ev { position: relative; margin: 24px 4px 0; background: linear-gradient(180deg, #fffaf2, #fff4e6); border-radius: 22px; padding: 9px 9px 13px;
+        box-shadow: 0 0 0 1.5px #e3bd6f, 0 0 0 5px #fffaf2, 0 0 0 6px #ecd29c, 0 16px 34px rgba(120,40,30,.2); }
   .panel { position: relative; border-radius: 16px; overflow: hidden; }
   .panel .txt { position: relative; z-index: 3; padding: 0 14px; }
   .tag { font-size: 9.5px; }
-  .ev h3 { font-size: 41px; margin: 0; line-height: 1.15; font-weight: 400; white-space: nowrap; }
+  .ev h3 { font-size: 33px; margin: 2px 0; line-height: 1.2; font-weight: 600; white-space: nowrap; }
   .sub { font-size: 14.5px; font-style: italic; margin: 2px 14px 8px; line-height: 1.3; }
   .daterow { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 19px; font-weight: 600; margin: 2px 0; }
   .daterow .d { font-size: 32px; font-weight: 700; padding: 0 12px; border-left: 1.5px solid currentColor; border-right: 1.5px solid currentColor; line-height: 1; }
@@ -151,7 +160,7 @@
             filter: drop-shadow(0 0 10px rgba(255,210,120,.45)); }
   .rec .tag, .rec .vl { color: #f0cf8e; }
   .marquee { position: relative; z-index: 3; display: inline-block; margin: 16px auto 0; padding: 6px 20px; border-radius: 6px; background: #3a0d18;
-             border: 2px solid #ffd56b; color: #ffe7a8; font-size: 22px; box-shadow: 0 0 18px rgba(255,200,90,.45); }
+             border: 2px solid #ffd56b; color: #ffe7a8; font-size: 17px; box-shadow: 0 0 18px rgba(255,200,90,.45); }
   .marquee::before, .marquee::after { content: ""; position: absolute; left: 6px; right: 6px; height: 4px;
       background: radial-gradient(circle, #fff3c4 1.6px, transparent 2.2px) 0 0 / 11px 4px repeat-x; animation: blink 1s steps(2) infinite; }
   .marquee::before { top: 3px; } .marquee::after { bottom: 3px; }
@@ -173,7 +182,7 @@
            display: flex; align-items: center; justify-content: center; }
   .slide img { width: 88%; }
   .slide.full img { width: 100%; height: 100%; object-fit: cover; }
-  .cap { font-size: 30px; color: var(--rose); min-height: 40px; transition: opacity .4s; }
+  .cap { font-size: 21px; color: #9c1a45; min-height: 34px; margin-top: 4px; transition: opacity .4s; }
   .dots { display: flex; justify-content: center; gap: 7px; margin-top: 4px; }
   .dots i { width: 6px; height: 6px; border-radius: 50%; background: #e7c2c9; transition: all .3s; }
   .dots i.on { background: var(--pink); width: 18px; border-radius: 4px; }
@@ -184,7 +193,7 @@
 
   .ending { background: linear-gradient(180deg, #7b4f3c 0%, #5b392a 100%); color: #f6e9dc; padding: 30px 22px 60px; }
   .ending .caps { font-size: 11px; color: #e6cdb6; }
-  .ending .script { font-size: 50px; color: #fff; margin: 2px 0; line-height: 1.15; white-space: nowrap; }
+  .ending .script { font-size: 38px; color: #fff4e2; margin: 6px 0; line-height: 1.2; white-space: nowrap; font-weight: 600; }
   .ending .date { font-size: 19px; margin-top: 6px; font-style: italic; }
   .ending .hash { font-family: "Cinzel", serif; font-size: 12px; letter-spacing: .16em; margin-top: 10px; color: #f1d4a8; }
 
@@ -241,10 +250,10 @@
       <div class="reveal">
         <div class="om tamil">‖ ஸ்ரீ விநாயகர் துணை ‖</div>
         <div class="bless">Together with our families, we seek your gracious presence and blessings on the auspicious occasion of the wedding celebration of</div>
-        <div class="name script">Abiram</div>
+        <div class="name script grad">Abiram</div>
         <div class="par">S/o Mr. D. Ramesh &amp;<br>Late Mrs. R. Vasundradevi</div>
         <div class="with script">with</div>
-        <div class="name script">Dhivya</div>
+        <div class="name script grad">Dhivya</div>
         <div class="par">D/o Mr. K. Madurai Muthu &amp;<br>Mrs. M. Shantha</div>
       </div>
       <img class="leaves" src="assets/hero-leaves.svg" style="left:-8px" alt="">
@@ -257,7 +266,7 @@
     <img class="div" src="assets/divider.svg" alt="">
     <div class="std">
       <img class="deco" src="assets/bd-shades.webp" style="width:76px;right:8px;top:-62px;z-index:2" alt="">
-      <div class="std-u"><div class="caps">Save the date</div><div class="script">15th November 2026</div></div>
+      <div class="std-u"><div class="caps">Save the date</div><div class="dt"><div class="side">SUNDAY</div><div class="day">15</div><div class="side">NOV · 2026</div></div></div>
       <canvas id="scratch"></canvas>
     </div>
     <div class="note" id="note">Scratch the golden card to reveal our date</div>
@@ -315,7 +324,7 @@
 
   <section class="await reveal">
     <img class="ai" src="assets/ai-floor.webp" alt="Abiram and Dhivya">
-    <h2 class="title script" style="font-size:38px;white-space:nowrap">Awaiting your noble presence</h2>
+    <h2 class="title script" style="font-size:28px;white-space:nowrap">Awaiting your noble presence</h2>
     <img class="div" src="assets/divider.svg" alt="">
     <p>We look forward to celebrating our special day with you. Your presence and blessings will make this occasion truly memorable.</p>
   </section>
@@ -402,9 +411,10 @@
   }
   intro.addEventListener("click", openEnv);
   if (location.hash === "#open") openEnv();
-  if (location.hash === "#skip") {   // preview helper: jump straight to the invite
+  if (location.hash === "#skip" || location.hash === "#reveal") {   // preview helper: jump straight to the invite
     opened = true; intro.remove(); $("app").style.transition = "none"; $("app").classList.add("show"); document.body.classList.remove("locked");
     document.querySelectorAll(".reveal").forEach((r) => { r.style.transition = "none"; r.classList.add("in"); });
+    if (location.hash === "#reveal") setTimeout(revealDate, 50);
   }
   intro.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") openEnv(); });
 
