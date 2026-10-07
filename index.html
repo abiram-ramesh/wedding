@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#f39a76">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cinzel:wght@500;600;700&family=Noto+Serif+Tamil:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cinzel:wght@500;600;700&family=Noto+Serif+Tamil:wght@600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/env-flap.svg">
 <link rel="preload" as="image" href="assets/env-pocket.svg">
 <style>
@@ -30,7 +30,7 @@
   body { background: #ecdcd6; color: var(--ink); font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; overflow-x: hidden; }
   body.locked { overflow: hidden; height: 100vh; }
   img { display: block; }
-  .script { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: .005em; }
+  .script { font-family: "Parisienne", cursive; font-weight: 400; }
   .grad { background: linear-gradient(100deg, #9c0f3f 0%, #d0306a 45%, #a3123f 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .caps { font-family: "Cinzel", serif; letter-spacing: .22em; text-transform: uppercase; }
   .tamil { font-family: "Noto Serif Tamil", serif; }
@@ -93,7 +93,7 @@
   .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s ease, transform 1s ease; }
   .reveal.in { opacity: 1; transform: none; }
   .div { width: 64%; margin: 4px auto; }
-  .title { font-size: 34px; color: #9c1a45; margin: 0; line-height: 1.2; }
+  .title { font-size: 42px; color: #b81d55; margin: 0; line-height: 1.2; }
   .kicker { font-size: 10px; color: var(--muted); }
   .deco { position: absolute; pointer-events: none; }
 
@@ -105,22 +105,15 @@
   .hero .art { width: 62%; margin: 20px auto 8px; }
   .om { font-size: 14px; color: #8e1b2f; margin: 4px 0 10px; }
   .bless { font-size: 16px; line-height: 1.5; font-style: italic; background: rgba(255,255,255,.82); padding: 10px 12px; border-radius: 10px; margin: 0 auto 12px; color: #5b4743; }
-  .names { margin: 6px 0 0; }
-  .name { font: 600 42px "Cinzel", serif; letter-spacing: .12em; padding-left: .12em; color: #7a0f2e; line-height: 1.05; margin: 4px 0 0;
-          text-shadow: 0 1px 0 rgba(255,255,255,.9), 0 2px 6px rgba(122,15,46,.12); white-space: nowrap; }
-  .name .ini { font-size: 1.42em; letter-spacing: .02em; vertical-align: -.04em;
-               background: linear-gradient(170deg, #8a5a12 0%, #d9ab48 30%, #f8e3a0 48%, #c08f2e 66%, #8a5a12 100%);
-               -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
-               filter: drop-shadow(0 1px 0 rgba(255,255,255,.7)) drop-shadow(0 2px 3px rgba(120,80,10,.25)); }
-  .flo { display: block; width: 150px; height: 14px; margin: 8px auto 2px; }
+  .names { margin: 4px 0 0; }
+  .name { font-size: 64px; line-height: 1.15; color: #c8215d; margin: 0; white-space: nowrap;
+          text-shadow: 0 1px 0 rgba(255,255,255,.9), 0 3px 10px rgba(200,33,93,.18); }
+  .flo { display: block; width: 160px; height: 14px; margin: 0 auto 4px; }
   .par { font-size: 15px; color: var(--muted); line-height: 1.35; font-style: italic; }
-  .amp { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 16px auto 12px; width: 84%; }
-  .amp::before, .amp::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #c99a3b); }
-  .amp::after { background: linear-gradient(90deg, #c99a3b, transparent); }
-  .amp b { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-           font: italic 500 25px "Playfair Display", serif; color: #fff8e6; padding-bottom: 2px;
-           background: radial-gradient(circle at 35% 30%, #f8e3a0, #c99a3b 55%, #8a5a12);
-           box-shadow: 0 4px 10px rgba(138,90,18,.35), inset 0 0 0 2px rgba(255,255,255,.45), 0 0 0 4px rgba(255,248,240,.9), 0 0 0 5px #e3c27a; }
+  .with { display: flex; align-items: center; justify-content: center; gap: 14px; width: 70%; margin: 10px auto 0;
+          font-size: 34px; color: #c8215d; line-height: 1; }
+  .with::before, .with::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #e4a5b8); }
+  .with::after { background: linear-gradient(90deg, #e4a5b8, transparent); }
 
   /* scratch */
   .std { position: relative; width: 92%; margin: 6px auto 0; height: 128px; }
@@ -149,7 +142,7 @@
   .panel { position: relative; border-radius: 16px; overflow: hidden; }
   .panel .txt { position: relative; z-index: 3; padding: 0 14px; }
   .tag { font-size: 9.5px; }
-  .ev h3 { font-size: 33px; margin: 2px 0; line-height: 1.2; font-weight: 600; white-space: nowrap; }
+  .ev h3 { font-size: 40px; margin: 0; line-height: 1.25; font-weight: 400; white-space: nowrap; }
   .sub { font-size: 14.5px; font-style: italic; margin: 2px 14px 8px; line-height: 1.3; }
   .daterow { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 19px; font-weight: 600; margin: 2px 0; }
   .daterow .d { font-size: 32px; font-weight: 700; padding: 0 12px; border-left: 1.5px solid currentColor; border-right: 1.5px solid currentColor; line-height: 1; }
@@ -172,7 +165,7 @@
             filter: drop-shadow(0 0 10px rgba(255,210,120,.45)); }
   .rec .tag, .rec .vl { color: #f0cf8e; }
   .marquee { position: relative; z-index: 3; display: inline-block; margin: 16px auto 0; padding: 6px 20px; border-radius: 6px; background: #3a0d18;
-             border: 2px solid #ffd56b; color: #ffe7a8; font-size: 17px; box-shadow: 0 0 18px rgba(255,200,90,.45); }
+             border: 2px solid #ffd56b; color: #ffe7a8; font-size: 21px; box-shadow: 0 0 18px rgba(255,200,90,.45); }
   .marquee::before, .marquee::after { content: ""; position: absolute; left: 6px; right: 6px; height: 4px;
       background: radial-gradient(circle, #fff3c4 1.6px, transparent 2.2px) 0 0 / 11px 4px repeat-x; animation: blink 1s steps(2) infinite; }
   .marquee::before { top: 3px; } .marquee::after { bottom: 3px; }
@@ -194,7 +187,7 @@
            display: flex; align-items: center; justify-content: center; }
   .slide img { width: 88%; }
   .slide.full img { width: 100%; height: 100%; object-fit: cover; }
-  .cap { font-size: 21px; color: #9c1a45; min-height: 34px; margin-top: 4px; transition: opacity .4s; }
+  .cap { font-size: 26px; color: #b81d55; min-height: 34px; margin-top: 4px; transition: opacity .4s; }
   .dots { display: flex; justify-content: center; gap: 7px; margin-top: 4px; }
   .dots i { width: 6px; height: 6px; border-radius: 50%; background: #e7c2c9; transition: all .3s; }
   .dots i.on { background: var(--pink); width: 18px; border-radius: 4px; }
@@ -205,7 +198,7 @@
 
   .ending { background: linear-gradient(180deg, #7b4f3c 0%, #5b392a 100%); color: #f6e9dc; padding: 30px 22px 60px; }
   .ending .caps { font-size: 11px; color: #e6cdb6; }
-  .ending .script { font-size: 38px; color: #fff4e2; margin: 6px 0; line-height: 1.2; white-space: nowrap; font-weight: 600; }
+  .ending .script { font-size: 46px; color: #fff4e2; margin: 6px 0; line-height: 1.2; white-space: nowrap; }
   .ending .date { font-size: 19px; margin-top: 6px; font-style: italic; }
   .ending .hash { font-family: "Cinzel", serif; font-size: 12px; letter-spacing: .16em; margin-top: 10px; color: #f1d4a8; }
 
@@ -263,12 +256,12 @@
         <div class="om tamil">‖ ஸ்ரீ விநாயகர் துணை ‖</div>
         <div class="bless">Together with our families, we seek your gracious presence and blessings on the auspicious occasion of the wedding celebration of</div>
         <div class="names">
-        <div class="name"><span class="ini">A</span>BIRAM</div>
-        <svg class="flo" viewBox="0 0 150 14" aria-hidden="true"><path d="M4 7 H62 M88 7 H146" stroke="#c99a3b" stroke-width="1"/><path d="M75 1 L81 7 L75 13 L69 7Z" fill="#c99a3b"/><circle cx="64" cy="7" r="1.6" fill="#c99a3b"/><circle cx="86" cy="7" r="1.6" fill="#c99a3b"/></svg>
+        <div class="name script">Abiram</div>
+        <svg class="flo" viewBox="0 0 160 14" aria-hidden="true"><path d="M6 7 Q40 2 70 7 M90 7 Q120 2 154 7" stroke="#e4a5b8" stroke-width="1.1" fill="none"/><path d="M80 2 C83 5 83 9 80 12 C77 9 77 5 80 2Z M74 7 C77 4 83 4 86 7 C83 10 77 10 74 7Z" fill="#d76b8f"/></svg>
         <div class="par">S/o Mr. D. Ramesh &amp;<br>Late Mrs. R. Vasundradevi</div>
-        <div class="amp"><b>&amp;</b></div>
-        <div class="name"><span class="ini">D</span>HIVYA</div>
-        <svg class="flo" viewBox="0 0 150 14" aria-hidden="true"><path d="M4 7 H62 M88 7 H146" stroke="#c99a3b" stroke-width="1"/><path d="M75 1 L81 7 L75 13 L69 7Z" fill="#c99a3b"/><circle cx="64" cy="7" r="1.6" fill="#c99a3b"/><circle cx="86" cy="7" r="1.6" fill="#c99a3b"/></svg>
+        <div class="with script">with</div>
+        <div class="name script">Dhivya</div>
+        <svg class="flo" viewBox="0 0 160 14" aria-hidden="true"><path d="M6 7 Q40 2 70 7 M90 7 Q120 2 154 7" stroke="#e4a5b8" stroke-width="1.1" fill="none"/><path d="M80 2 C83 5 83 9 80 12 C77 9 77 5 80 2Z M74 7 C77 4 83 4 86 7 C83 10 77 10 74 7Z" fill="#d76b8f"/></svg>
         <div class="par">D/o Mr. K. Madurai Muthu &amp;<br>Mrs. M. Shantha</div>
         </div>
       </div>
@@ -340,7 +333,7 @@
 
   <section class="await reveal">
     <img class="ai" src="assets/ai-floor.webp" alt="Abiram and Dhivya">
-    <h2 class="title script" style="font-size:28px;white-space:nowrap">Awaiting your noble presence</h2>
+    <h2 class="title script" style="font-size:34px;white-space:nowrap">Awaiting your noble presence</h2>
     <img class="div" src="assets/divider.svg" alt="">
     <p>We look forward to celebrating our special day with you. Your presence and blessings will make this occasion truly memorable.</p>
   </section>
