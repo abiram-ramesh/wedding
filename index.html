@@ -191,6 +191,10 @@
   #music { position: fixed; right: max(14px, calc(50% - 240px + 14px)); bottom: 18px; z-index: 60; width: 42px; height: 42px; border-radius: 50%; border: 0;
            background: rgba(107,68,51,.85); color: #fff; display: none; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,.25); }
   #music svg { width: 20px; height: 20px; }
+  #music::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 1.5px solid rgba(107,68,51,.45); animation: ring 2.2s ease-out infinite; }
+  #music.off::after { display: none; }
+  #music.off #wave { opacity: .15; }
+  #music.off::before { content: ""; position: absolute; width: 24px; height: 2px; background: #fff; transform: rotate(-45deg); border-radius: 2px; }
   @media (prefers-reduced-motion: reduce) { .env-float, .seal::after, .tap, .hand, .marquee::before, .marquee::after { animation: none !important; } }
 </style>
 </head>
@@ -198,7 +202,7 @@
 <script>
   // Filled in by build.py for each version. Defaults let this file open on its own too.
   window.CONFIG = { showReception: true, music: "" };
-  window.CONFIG = {"showReception": false, "music": ""};
+  window.CONFIG = {"showReception": false, "music": "music.mp3"};
 </script>
 
 <canvas id="petals"></canvas>
@@ -363,10 +367,25 @@
   function addPetals(n) { if (reduced) return; for (let i = 0; i < n; i++) petals.push(newPetal(false)); if (!petalsOn) { petalsOn = true; loop(); } }
 
   /* ---------- music ---------- */
-  const btn = $("music"); let audio = null;
+  const btn = $("music"); let audio = null, userMuted = false;
   if (CONFIG.music) {
-    audio = new Audio(CONFIG.music); audio.loop = true; btn.style.display = "flex";
-    btn.onclick = (e) => { e.stopPropagation(); if (audio.paused) { audio.play(); $("wave").style.opacity = 1; } else { audio.pause(); $("wave").style.opacity = .2; } };
+    audio = new Audio(CONFIG.music); audio.loop = true; audio.preload = "auto";
+    const setIcon = () => { btn.classList.toggle("off", audio.paused); btn.setAttribute("aria-label", audio.paused ? "Play music" : "Mute music"); };
+    audio.addEventListener("play", setIcon); audio.addEventListener("pause", setIcon);
+    btn.onclick = (e) => { e.stopPropagation(); if (audio.paused) { userMuted = false; audio.play(); } else { userMuted = true; audio.pause(); } };
+    // pause when the guest leaves the tab / locks the phone, resume when they come back
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) audio.pause(); else if (!userMuted && document.body.dataset.opened) audio.play().catch(() => {});
+    });
+  }
+  function startMusic() {
+    if (!audio) return;
+    document.body.dataset.opened = "1";
+    audio.volume = 0;
+    audio.play().then(() => {
+      btn.style.display = "flex";
+      let v = 0; const fade = setInterval(() => { v = Math.min(.85, v + .05); audio.volume = v; if (v >= .85) clearInterval(fade); }, 120);
+    }).catch(() => { btn.style.display = "flex"; btn.classList.add("off"); });
   }
 
   /* ---------- envelope opening: seal press, flap lifts, card rises, fade into the invite ---------- */
@@ -374,7 +393,7 @@
   const later = (ms, fn) => setTimeout(fn, ms);
   function openEnv() {
     if (opened) return; opened = true;
-    if (audio) audio.play().catch(() => {});
+    startMusic();
     intro.classList.add("open");
     later(180, () => intro.classList.add("flip"));
     later(860, () => intro.classList.add("behind"));
